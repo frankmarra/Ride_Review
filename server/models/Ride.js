@@ -1,5 +1,5 @@
 const { Schema } = require('mongoose')
-// const Schema = mongoose.Schema
+
 
 const Ride = new Schema(
   {
