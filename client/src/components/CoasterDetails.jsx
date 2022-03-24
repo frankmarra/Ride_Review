@@ -10,15 +10,9 @@ const CoasterDetails = () => {
   const getCoasterDetails = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/${selectedCoaster.coasterId}`)
     setCoasterDetails(response.data.ride)
-    const locationResponse = await axios.get(`http://localhost:3001/api/locations/${coasterDetails.location}`)
-    console.log(locationResponse.data.location.name)
+    const locationResponse = await axios.get(`http://localhost:3001/api/locations/${response.data.ride.location}`)
     setLocation(locationResponse.data.location.name)
   }
-
-  // const getLocation = async () => {
-  //   const response = await axios.get(`http://localhost:3001/api/locations/${coasterDetails.location}`)
-  //   setLocation(response.data.location)
-  // }
 
   useEffect(() => {
     getCoasterDetails()
@@ -28,7 +22,7 @@ const CoasterDetails = () => {
     <div className="coaster-content">
       <section className="image-container">
         <div>
-          <img src={coasterDetails.image} alt="image" />
+          <img className="descriptionImg" src={coasterDetails.image} alt="image" />
         </div>
       </section>
       <section className="details">
