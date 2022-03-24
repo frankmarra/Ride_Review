@@ -6,3 +6,5 @@ const RideCard = (props) => {
     </div>
   )
 }
+
+export default RideCard
