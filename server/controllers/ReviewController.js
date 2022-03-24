@@ -12,4 +12,4 @@ const createReview = async (req, res) => {
   }
 }
 
-module.exports = { createReview }
+module.exports = createReview

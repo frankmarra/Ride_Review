@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import RideCard from '../components/RideCard'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Rides = () => {
   const [rides, setRides] = useState([])
@@ -13,12 +14,24 @@ const Rides = () => {
     getRides()
   }, [])
 
+  let navigate = useNavigate
+
+  const showCoaster = (coasterId) => {
+    navigate(`/coaster/details/${coasterId}`)
+  }
+
   return (
     <div>
       <h2>Rides</h2>
-      <section className="container-grid">
+      <section className="container">
         {rides.map((ride) => (
-          <RideCard name={ride.name} />
+          <div key={ride.id}>
+            <RideCard
+              name={ride.name}
+              image={ride.image}
+              onClick={showCoaster(ride.id)}
+            />
+          </div>
         ))}
       </section>
     </div>
