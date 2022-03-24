@@ -40,6 +40,12 @@ code {
   border-radius: 10%;
 }
 
+.descriptionImg {
+  width: 90%;
+  height: 700px;
+  border-radius: 10%;
+}
+
 .container {
   padding: 2em 0;
   display: grid;
