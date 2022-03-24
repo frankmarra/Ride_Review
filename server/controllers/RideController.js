@@ -1,4 +1,4 @@
-const Ride = require('../models/Ride')
+const { Ride } = require('../models/index')
 
 const createRide = async (req, res) => {
   try {
