@@ -1,7 +1,7 @@
 import Header from './components/Header'
 import { Routes, Route } from 'react-router-dom'
 import Review from './pages/Review'
-import Ride from './pages/Rides'
+import Rides from './pages/Rides'
 
 function App() {
   return (

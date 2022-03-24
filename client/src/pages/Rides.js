@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import RideCard from '../components/RideCard'
+import axios from 'axios'
 
 const Rides = () => {
   const [rides, setRides] = useState([])
