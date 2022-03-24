@@ -8,8 +8,7 @@ const Ride = new Schema(
     location: [{ type: Schema.Types.ObjectId, ref: 'Location' }],
     height: { type: String, required: false },
     speed: { type: String, required: false },
-    image: { type: String, required: false },
-    review: [{ type: Schema.Types.ObjectId, ref: 'Review', required: false }]
+    image: { type: String, required: false }
   },
   { timestamps: true }
 )

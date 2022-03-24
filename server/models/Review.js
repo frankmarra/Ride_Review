@@ -3,7 +3,7 @@ const { Schema } = require('mongoose')
 const Review = new Schema(
   {
     userName: { type: String, required: true },
-    coasterName: { type: Schema.Types.ObjectId, ref: 'Ride', required: true },
+    ride: { type: Schema.Types.ObjectId, ref: 'Ride' },
     rating: { type: String, required: true },
     review: { type: String, required: true }
   },
