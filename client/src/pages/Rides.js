@@ -14,7 +14,7 @@ const Rides = () => {
     getRides()
   }, [])
 
-  let navigate = useNavigate
+  let navigate = useNavigate()
 
   const showCoaster = (coasterId) => {
     navigate(`/coaster/details/${coasterId}`)
@@ -25,11 +25,11 @@ const Rides = () => {
       <h2>Rides</h2>
       <section className="container">
         {rides.map((ride) => (
-          <div key={ride.id}>
+          <div key={ride._id}>
             <RideCard
               name={ride.name}
               image={ride.image}
-              onClick={showCoaster(ride.id)}
+              onClick={() => showCoaster(ride._id)}
             />
           </div>
         ))}

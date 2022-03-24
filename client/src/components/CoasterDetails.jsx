@@ -5,11 +5,20 @@ import { useParams } from 'react-router-dom'
 const CoasterDetails = () => {
   const [selectedCoaster, setSelectedCoaster] = useState(useParams())
   const [coasterDetails, setCoasterDetails] = useState('')
+  const [location, setLocation] = useState('')
 
   const getCoasterDetails = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/${selectedCoaster.coasterId}`)
-    setCoasterDetails(response.data)
+    setCoasterDetails(response.data.ride)
+    const locationResponse = await axios.get(`http://localhost:3001/api/locations/${coasterDetails.location}`)
+    console.log(locationResponse.data.location.name)
+    setLocation(locationResponse.data.location.name)
   }
+
+  // const getLocation = async () => {
+  //   const response = await axios.get(`http://localhost:3001/api/locations/${coasterDetails.location}`)
+  //   setLocation(response.data.location)
+  // }
 
   useEffect(() => {
     getCoasterDetails()
@@ -25,8 +34,8 @@ const CoasterDetails = () => {
       <section className="details">
         <div>
           <h3>{coasterDetails.name}</h3>
-          <p>{coasterDetails.name} is a {coasterDetails.type} roller coaster at {coasterDetails.location}.
-          It is {coasterDetails.height} feet tall and reaches a spped of {coasterDetails.speed} mph!</p>
+          <p>{coasterDetails.name} is a {coasterDetails.type} roller coaster at {location}.
+          It is {coasterDetails.height} feet tall and reaches a speed of {coasterDetails.speed} mph!</p>
         </div>
       </section>
       <button>Submit Review</button>
