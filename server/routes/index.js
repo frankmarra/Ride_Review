@@ -10,6 +10,8 @@ router.get('/rides/:id', controllers.getRide)
 
 router.get('/locations/:id', controllers.getLocation)
 
-// router.post('/rides/:rideId', controllers.ReviewController)
+router.post('/rides/:id', controllers.createReview)
+
+router.get('/rides/:id/reviews', controllers.getReviews)
 
 module.exports = router

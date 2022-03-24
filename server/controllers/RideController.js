@@ -1,4 +1,4 @@
-const { Ride, Location } = require('../models/index')
+const { Ride, Location, Review } = require('../models/index')
 
 const createRide = async (req, res) => {
   try {
@@ -45,9 +45,30 @@ const getLocation = async (req, res) => {
   }
 }
 
+const createReview = async (req, res) => {
+  try {
+    const review = await new Review(req.body)
+    await review.save()
+    return res.status(201).json({ review })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const getReviews = async (req, res) => {
+  try {
+    const reviews = await Review.find()
+    return res.status(200).json({ reviews })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createRide,
   getAllRides,
   getRide,
-  getLocation
+  getLocation,
+  createReview,
+  getReviews
 }
