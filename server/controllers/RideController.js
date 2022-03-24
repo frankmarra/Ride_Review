@@ -1,4 +1,4 @@
-const { Ride } = require('../models/index')
+const { Ride, Location } = require('../models/index')
 
 const createRide = async (req, res) => {
   try {
@@ -33,8 +33,21 @@ const getRide = async (req, res) => {
   }
 }
 
+const getLocation = async (req, res) => {
+  try {
+    const location = await Location.findById(req.params.id)
+    if (location) {
+      return res.status(200).json({ location })
+    }
+    return res.status(404).send('Location with speficied ID does not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 module.exports = {
   createRide,
   getAllRides,
-  getRide
+  getRide,
+  getLocation
 }
