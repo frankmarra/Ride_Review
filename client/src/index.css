@@ -5,6 +5,28 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #3bbcd9;
+  text-align: center;
+}
+
+nav {
+  background-color: #f24141;
+  height: 60px;
+  text-align: left;
+}
+
+a {
+  margin-left: 20px;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  top: 15px;
+}
+
+a:hover {
+  color: #f2b705;
 }
 
 code {
