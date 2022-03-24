@@ -9,4 +9,4 @@ const Location = new Schema(
   {timestamps: true}
 )
 
-model.exports = Location
+module.exports = Location
