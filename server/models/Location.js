@@ -2,11 +2,11 @@ const { Schema } = require('mongoose')
 
 const Location = new Schema(
   {
-    name: {type: String, required: true},
-    address: {type: String, required: true},
-    rides: {type: Schema.Types.ObjectId, ref: 'Ride'}
+    name: { type: String, required: true },
+    address: { type: String, required: true }
+    // rides: {type: Schema.Types.ObjectId, ref: 'Ride'}
   },
-  {timestamps: true}
+  { timestamps: true }
 )
 
 module.exports = Location
