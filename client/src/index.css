@@ -104,6 +104,10 @@ code {
 #highlight:hover {
   background-color: #f2b705;
   text-decoration: underline;
+  box-shadow: 0px 0px 20px 5px #f2b705;
+  width: 310px;
+  height: 300px;
+  padding: 10px;
 }
 
 body {
