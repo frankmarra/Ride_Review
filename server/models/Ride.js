@@ -1,6 +1,5 @@
 const { Schema } = require('mongoose')
 
-
 const Ride = new Schema(
   {
     name: { type: String, required: true },
