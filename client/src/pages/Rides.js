@@ -16,9 +16,9 @@ const Rides = () => {
   return (
     <div>
       <h2>Rides</h2>
-      <section className="container-grid">
+      <section className="container">
         {rides.map((ride) => (
-          <RideCard name={ride.name} />
+          <RideCard name={ride.name} image={ride.image} />
         ))}
       </section>
     </div>
