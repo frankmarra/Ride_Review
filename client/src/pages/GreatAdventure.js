@@ -3,16 +3,26 @@ import RideCard from '../components/RideCard'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Rides = () => {
+const GreatAdventure = () => {
+  const [location, setLocation] = useState()
   const [rides, setRides] = useState([])
 
   useEffect(() => {
-    const getRides = async () => {
-      const response = await axios.get('http://localhost:3001/api/rides')
-      setRides(response.data.rides)
+    const getAllLocations = async () => {
+      const response = await axios.get('http://localhost:3001/api/locations')
+      setLocation(response.data.locations[1]._id)
     }
-    getRides()
+    getAllLocations()
   }, [])
+  useEffect(() => {
+    const getRidesByPark = async () => {
+      const response = await axios.get(
+        `http://localhost:3001/api/locations/rides/${location}`
+      )
+      setRides(response.data.parkCoasters)
+    }
+    getRidesByPark()
+  }, [location])
 
   let navigate = useNavigate()
 
@@ -22,7 +32,7 @@ const Rides = () => {
 
   return (
     <div>
-      <h2>All of the coasters!</h2>
+      <h2>Rides At Great Adventure</h2>
       <section className="container">
         <div className="wrapper">
           {rides.map((ride) => (
@@ -40,4 +50,4 @@ const Rides = () => {
   )
 }
 
-export default Rides
+export default GreatAdventure
