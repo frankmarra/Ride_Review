@@ -6,7 +6,9 @@ import { useNavigate } from 'react-router-dom'
 const CedarPoint = () => {
   const [location, setLocation] = useState()
   const [rides, setRides] = useState([])
-
+  useEffect(() => {
+    document.title = 'Cedar Point'
+  })
   useEffect(() => {
     const getAllLocations = async () => {
       const response = await axios.get('http://localhost:3001/api/locations')
