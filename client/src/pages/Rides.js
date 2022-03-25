@@ -22,7 +22,7 @@ const Rides = () => {
 
   return (
     <div>
-      <h2>All of the coasters!</h2>
+      <h2>Roller Coaster Round Up</h2>
       <section className="container">
         <div className="wrapper">
           {rides.map((ride) => (
