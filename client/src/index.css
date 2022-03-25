@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #3bbcd9;
   text-align: center;
-  overflow: hidden;
 }
 
 nav {
@@ -58,6 +57,7 @@ code {
   padding: 2em 0;
   display: flex;
   justify-content: center;
+  overflow: hidden;
 }
 
 .container::-webkit-scrollbar {
@@ -114,8 +114,6 @@ code {
 body {
   background-color: #3bbcd9;
 }
-
-
 
 input {
   margin: 30px;
