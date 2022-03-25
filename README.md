@@ -45,4 +45,4 @@
 
 #### [Adobe colors](https://color.adobe.com/create/color-wheel)
 
-#### [CSS Inspiration](https://ryanmulligan.dev/)
+#### [CSS Carousel Inspiration](https://ryanmulligan.dev/)
