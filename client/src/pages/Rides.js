@@ -24,15 +24,17 @@ const Rides = () => {
     <div>
       <h2>Rides</h2>
       <section className="container">
-        {rides.map((ride) => (
-          <div key={ride._id}>
-            <RideCard
-              name={ride.name}
-              image={ride.image}
-              onClick={() => showCoaster(ride._id)}
-            />
-          </div>
-        ))}
+        <div className="wrapper">
+          {rides.map((ride) => (
+            <div key={ride._id}>
+              <RideCard
+                name={ride.name}
+                image={ride.image}
+                onClick={() => showCoaster(ride._id)}
+              />
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   )
