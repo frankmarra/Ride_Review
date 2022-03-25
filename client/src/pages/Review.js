@@ -64,7 +64,13 @@ const Review = () => {
       </label>
       <label>
         Rate out of 5:
-        <input onChange={handleRatingChange} type="text" name="rating" />
+        <input
+          onChange={handleRatingChange}
+          type="number"
+          min="0"
+          max="5"
+          name="rating"
+        />
       </label>
       <label>
         Leave a review:
