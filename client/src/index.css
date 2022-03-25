@@ -12,6 +12,7 @@ body {
 
 nav {
   background-color: #f24141;
+  background-color: #a65665;
   height: 60px;
   text-align: left;
 }
@@ -77,7 +78,7 @@ code {
 .container > div {
   scroll-snap-align: start;
   flex-shrink: 0;
-  width: 100vw;
+  width: 97vw;
   height: 500px;
   border-radius: 10px;
   transform-origin: center center;
@@ -90,6 +91,43 @@ code {
   align-items: center;
 }
 
+.container::before {
+  content: '';
+  position: absolute;
+  margin-top: 250px;
+  height: 320px;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  pointer-events: fill;
+  background-image: linear-gradient(
+    to left,
+    rgba(255, 255, 255, 0),
+    rgba(21, 44, 250, 0.975) 80%
+  );
+  width: 8%;
+}
+
+.container:after {
+  content: '';
+  position: absolute;
+  margin-top: 250px;
+  height: 320px;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: fill;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(21, 44, 250, 0.974) 80%
+  );
+  width: 8%;
+  padding: auto;
+}
+
 .style {
   border: 2px solid black;
   border-radius: 10%;
@@ -97,7 +135,7 @@ code {
   padding-bottom: 10px;
   height: 300px;
   width: 300px;
-  background-color: #88e8f2;
+  background-color: #999df2;
   margin: 10px;
 }
 
@@ -105,16 +143,14 @@ code {
   background-color: #f2b705;
   text-decoration: underline;
   box-shadow: 0px 0px 20px 5px #f2b705;
-  width: 310px;
-  height: 300px;
+  transform: scale(1.1);
   padding: 10px;
+  transition: 1.2s;
 }
 
 body {
   background-color: #3bbcd9;
 }
-
-
 
 input {
   margin: 30px;
