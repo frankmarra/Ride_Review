@@ -144,7 +144,7 @@ code {
 .container::before {
   content: '';
   position: absolute;
-  margin-top: 250px;
+  margin-top: 257px;
   height: 320px;
   z-index: 1;
   top: 0;
@@ -162,7 +162,7 @@ code {
 .container:after {
   content: '';
   position: absolute;
-  margin-top: 250px;
+  margin-top: 257px;
   height: 320px;
   z-index: 1;
   top: 0;
