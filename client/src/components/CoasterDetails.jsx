@@ -7,6 +7,7 @@ const CoasterDetails = () => {
   const [selectedCoaster, setSelectedCoaster] = useState(useParams())
   const [coasterDetails, setCoasterDetails] = useState('')
   const [location, setLocation] = useState('')
+  const [reviews, setReviews] = useState([])
 
   const getCoasterDetails = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/${selectedCoaster.coasterId}`)
@@ -15,8 +16,15 @@ const CoasterDetails = () => {
     setLocation(locationResponse.data.location.name)
   }
 
+  const getReviews = async () => {
+    const response = await axios.get(`http://localhost:3001/api/rides/reviews/${selectedCoaster.coasterId}`)
+    setReviews(response.data.coasterReviews)
+    console.log(reviews)
+  }
+
   useEffect(() => {
     getCoasterDetails()
+    getReviews()
   }, [])
 
   let navigate = useNavigate()
@@ -39,6 +47,12 @@ const CoasterDetails = () => {
           It is {coasterDetails.height} feet tall and reaches a speed of {coasterDetails.speed} mph!</p>
         </div>
       </section>
+      <div>
+        {reviews.length !== 0 && <h3>Reviews</h3>}
+        {reviews.map((review) => (
+          <p key={review._id}>{review.userName} gives this ride a {review.rating} and says: {review.review}</p>
+        ))}
+      </div>
       <button onClick={() => leaveReview(selectedCoaster.coasterId)}>Submit Review</button>
     </div>
   )
