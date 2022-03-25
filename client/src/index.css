@@ -235,3 +235,14 @@ button:focus {
   box-shadow: inset 0 -3.25em 0 0 var(--hover);
   background-color: #f2b705;
 }
+
+form {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  border: 3px solid rgb(118, 33, 230);
+  background-color: #42bcd8;
+  margin: 5% 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 3px rgba(118, 33, 230, 0.5);
+}
