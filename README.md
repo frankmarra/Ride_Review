@@ -10,11 +10,11 @@
 
 ## Description:
 
-#### Ride Review is the place to be for all things amusement park rides. Wondering which roller coasters to ride? No problem.
+#### Ride Review is the place to be for all things roller coasters. Wondering which roller coasters to ride? No problem.
 
-#### Look through our database of rides to help you plan out your next trip!
+#### Look through our database of rides to help you plan out your next trip to some of our favorite parks!
 
-#### Know of a ride we don't have listed and want to share? Use our 'Add Ride' form to let everyone know about that hidden gem!
+#### Ridden one of the coasters and want to leave a review? No problem! Just click on the coaster you would like to review, and click on the review button. Fill out the review and hit submit to let everyone know what you thought!
 
 ---
 
@@ -23,6 +23,7 @@
 - React
 - MongoDB
 - Mongoose
+- Css
 
 ---
 
@@ -43,3 +44,5 @@
 #### [Theme Park Database](https://www.theparkdb.com/)
 
 #### [Thrill Data](https://www.thrill-data.com/)
+
+#### [Adobe colors](https://color.adobe.com/create/color-wheel)
