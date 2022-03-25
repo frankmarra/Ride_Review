@@ -5,7 +5,6 @@ const Header = () => {
     <header>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/form">Submit Form</Link>
       </nav>
     </header>
   )
