@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const CoasterDetails = () => {
   const [selectedCoaster, setSelectedCoaster] = useState(useParams())
@@ -18,6 +19,12 @@ const CoasterDetails = () => {
     getCoasterDetails()
   }, [])
 
+  let navigate = useNavigate()
+
+  const leaveReview = (rideId) => {
+    navigate(`/review/${rideId}`)
+  }
+
   return (
     <div className="coaster-content">
       <section className="image-container">
@@ -32,7 +39,7 @@ const CoasterDetails = () => {
           It is {coasterDetails.height} feet tall and reaches a speed of {coasterDetails.speed} mph!</p>
         </div>
       </section>
-      <button>Submit Review</button>
+      <button onClick={() => leaveReview(selectedCoaster.coasterId)}>Submit Review</button>
     </div>
   )
 }
