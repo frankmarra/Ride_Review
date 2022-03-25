@@ -1,7 +1,6 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Poppins';
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #3bbcd9;
@@ -11,6 +10,7 @@ body {
 
 nav {
   display: flex;
+  font-family: 'Ramabhadra';
   justify-content: space-around;
   background-color: #f24141;
   background-color: #a65665;
@@ -186,6 +186,8 @@ code {
   width: 300px;
   background-color: #999df2;
   margin: 10px;
+  font-family: 'Poppins';
+  font-weight: 600;
 }
 
 #highlight:hover {
