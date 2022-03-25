@@ -5,10 +5,15 @@ const Header = () => {
     <header>
       <nav>
         <Link to="/">Home</Link>
-        <Link to="/Carowinds">Carowinds</Link>
-        <Link to="/Great_Adventure">Great Adventure</Link>
-        <Link to="/Valleyfair">Valleyfair!</Link>
-        <Link to="/Cedar_Point">Cedar Point</Link>
+        <div className="dropdown">
+          <button className="drop-button">Parks</button>
+          <div className="drop-down-links">
+            <Link to="/Carowinds">Carowinds</Link>
+            <Link to="/Great_Adventure">Great Adventure</Link>
+            <Link to="/Valleyfair">Valleyfair!</Link>
+            <Link to="/Cedar_Point">Cedar Point</Link>
+          </div>
+        </div>
       </nav>
     </header>
   )
