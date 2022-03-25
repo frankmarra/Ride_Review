@@ -92,6 +92,12 @@ code {
   overscroll-behavior-x: contain;
 }
 
+.wrapper {
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2F3.bp.blogspot.com%2F-uVElJtUSLNU%2FVOnoZLWP_OI%2FAAAAAAAAAxc%2FyxZlLI0Ho5Y%2Fs1600%2Froller_coaster_track.jpg&f=1&nofb=1);
+  background-attachment: local;
+  background-size: contain;
+}
+
 .img {
   width: 90%;
   height: 200px;
