@@ -108,6 +108,7 @@ code {
   width: 310px;
   height: 300px;
   padding: 10px;
+  transition: 0.25s;
 }
 
 body {
@@ -138,7 +139,6 @@ button {
   border: 4px double #cccccc;
   margin: 5px;
   font-size: 14px;
-  transition: 0.25s;
 }
 
 button:hover,
