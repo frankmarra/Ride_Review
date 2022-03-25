@@ -2,13 +2,16 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useNavigate } from 'react-router-dom'
-
 const CoasterDetails = () => {
   const [selectedCoaster, setSelectedCoaster] = useState(useParams())
   const [coasterDetails, setCoasterDetails] = useState('')
   const [location, setLocation] = useState('')
   const [reviews, setReviews] = useState([])
   const [averageRating, setAverageRating] = useState(0)
+
+  useEffect(() => {
+    document.title = `${coasterDetails.name}`
+  })
 
   const getCoasterDetails = async () => {
     const response = await axios.get(
@@ -66,8 +69,11 @@ const CoasterDetails = () => {
       <section className="details">
         <div>
           <h3>{coasterDetails.name}</h3>
-          <p>{coasterDetails.name} is a {coasterDetails.type} roller coaster at {location}.
-          It is {coasterDetails.height} tall and reaches a speed of {coasterDetails.speed}!</p>
+          <p>
+            {coasterDetails.name} is a {coasterDetails.type} roller coaster at{' '}
+            {location}. It is {coasterDetails.height} tall and reaches a speed
+            of {coasterDetails.speed}!
+          </p>
         </div>
       </section>
       <div>

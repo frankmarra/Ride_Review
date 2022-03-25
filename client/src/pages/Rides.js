@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom'
 
 const Rides = () => {
   const [rides, setRides] = useState([])
-
+  useEffect(() => {
+    document.title = 'Roller Coaster Round Up'
+  })
   useEffect(() => {
     const getRides = async () => {
       const response = await axios.get('http://localhost:3001/api/rides')

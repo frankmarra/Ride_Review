@@ -8,6 +8,9 @@ const Carowinds = () => {
   const [rides, setRides] = useState([])
 
   useEffect(() => {
+    document.title = 'Carowinds'
+  })
+  useEffect(() => {
     const getAllLocations = async () => {
       const response = await axios.get('http://localhost:3001/api/locations')
       setLocation(response.data.locations[0]._id)

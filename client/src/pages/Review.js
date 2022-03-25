@@ -10,7 +10,9 @@ const Review = () => {
   const [review, setReview] = useState('')
 
   const { rideId } = useParams()
-
+  useEffect(() => {
+    document.title = 'Review'
+  })
   useEffect(() => {
     setRide(rideId)
   }, [])
