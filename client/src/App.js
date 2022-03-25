@@ -11,11 +11,11 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Rides />} />
-          <Route path="/form" element={<Review />} />
           <Route
             path="/coaster/details/:coasterId"
             element={<CoasterDetails />}
           />
+          <Route path="/review/:rideId" element={<Review />} />
         </Routes>
       </main>
     </div>
