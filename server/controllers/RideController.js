@@ -33,13 +33,40 @@ const getRide = async (req, res) => {
   }
 }
 
+const getRidesByPark = async (req, res) => {
+  try {
+    const rides = await Ride.find()
+    let parkCoasters = []
+    rides.forEach((ride) => {
+      if (ride.location[0]._id == req.params.id) {
+        parkCoasters.push(ride)
+      }
+    })
+    if (parkCoasters) {
+      return res.status(200).json({ parkCoasters })
+    }
+    return res.status(404).send('Reviews for this ride do not exist')
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
+const getAllLocations = async (req, res) => {
+  try {
+    const locations = await Location.find()
+    return res.status(200).json({ locations })
+  } catch (error) {
+    return res.status(500).send(error.message)
+  }
+}
+
 const getLocation = async (req, res) => {
   try {
     const location = await Location.findById(req.params.id)
     if (location) {
       return res.status(200).json({ location })
     }
-    return res.status(404).send('Location with speficied ID does not exist')
+    return res.status(404).send('Location with specified ID does not exist')
   } catch (error) {
     return res.status(500).send(error.message)
   }
@@ -58,9 +85,15 @@ const createReview = async (req, res) => {
 const getReviews = async (req, res) => {
   try {
     const reviews = await Review.find()
-    reviews.filter((review) => (ride = req.body.ride))
-    if (reviews) {
-      return res.status(200).json({ reviews })
+    let coasterReviews = []
+
+    reviews.forEach((review) => {
+      if (review.ride._id == req.params.id) {
+        coasterReviews.push(review)
+      }
+    })
+    if (coasterReviews) {
+      return res.status(200).json({ coasterReviews })
     }
     return res.status(404).send('Reviews for this ride do not exist')
   } catch (error) {
@@ -72,6 +105,8 @@ module.exports = {
   createRide,
   getAllRides,
   getRide,
+  getRidesByPark,
+  getAllLocations,
   getLocation,
   createReview,
   getReviews

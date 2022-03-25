@@ -6,12 +6,16 @@ router.get('/', (req, res) => res.send('This is root'))
 
 router.get('/rides', controllers.getAllRides)
 
-router.get('/rides/:id', controllers.getRide)
+router.get('/locations/rides/:id', controllers.getRidesByPark)
 
-router.get('/locations/:id', controllers.getLocation)
+router.get('/rides/:id', controllers.getRide)
 
 router.post('/rides/:id', controllers.createReview)
 
-router.get('/rides/:id/reviews', controllers.getReviews)
+router.get('/locations', controllers.getAllLocations)
+
+router.get('/locations/:id', controllers.getLocation)
+
+router.get('/rides/reviews/:id', controllers.getReviews)
 
 module.exports = router
