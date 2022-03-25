@@ -22,9 +22,6 @@ const Review = () => {
 
   const handleRatingChange = (e) => {
     e.preventDefault()
-    // if (typeof e.target.value === Number) {
-    //   setRating(e.target.value)
-    // }
     setRating(e.target.value)
   }
 
