@@ -8,6 +8,7 @@ const CoasterDetails = () => {
   const [coasterDetails, setCoasterDetails] = useState('')
   const [location, setLocation] = useState('')
   const [reviews, setReviews] = useState([])
+  const [averageRating, setAverageRating] = useState(0)
 
   const getCoasterDetails = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/${selectedCoaster.coasterId}`)
@@ -18,8 +19,21 @@ const CoasterDetails = () => {
 
   const getReviews = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/reviews/${selectedCoaster.coasterId}`)
+    console.log(response.data.coasterReviews)
     setReviews(response.data.coasterReviews)
-    console.log(reviews)
+    getAverageRating(response.data.coasterReviews)
+  }
+
+  const getAverageRating = (reviews) => {
+    if (reviews.length !== 0) {
+      let total = 0
+      for (let i = 0; i < reviews.length; i++) {
+        total += parseInt(reviews[i].rating)
+      }
+      setAverageRating(total / reviews.length)
+    } else {
+      setAverageRating(0)
+    }
   }
 
   useEffect(() => {
@@ -44,10 +58,11 @@ const CoasterDetails = () => {
         <div>
           <h3>{coasterDetails.name}</h3>
           <p>{coasterDetails.name} is a {coasterDetails.type} roller coaster at {location}.
-          It is {coasterDetails.height} feet tall and reaches a speed of {coasterDetails.speed} mph!</p>
+          It is {coasterDetails.height} tall and reaches a speed of {coasterDetails.speed}!</p>
         </div>
       </section>
       <div>
+        {reviews.length !== 0 && <h3>Average rating: {averageRating}</h3>}
         {reviews.length !== 0 && <h3>Reviews</h3>}
         {reviews.map((review) => (
           <p key={review._id}>{review.userName} gives this ride a {review.rating} and says: {review.review}</p>
