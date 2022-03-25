@@ -71,7 +71,7 @@ const CoasterDetails = () => {
         </div>
       </section>
       <div>
-        {reviews.length !== 0 && <h3>Average rating: {averageRating}</h3>}
+        {reviews.length !== 0 ? <h3>Average rating: {averageRating}</h3> : <h3>No reviews yet</h3>}
         {reviews.length !== 0 && <h3>Reviews</h3>}
         {reviews.map((review) => (
           <p key={review._id}>
