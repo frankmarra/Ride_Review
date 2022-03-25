@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Review = () => {
   const [ride, setRide] = useState('')
@@ -32,6 +33,8 @@ const Review = () => {
     setReview(e.target.value)
   }
 
+  let navigate = useNavigate()
+
   const handleOnSubmit = async (e) => {
     const packagedPayLoad = {
       userName: userName,
@@ -39,41 +42,26 @@ const Review = () => {
       rating: rating,
       review: review
     }
-    console.log(packagedPayLoad)
     e.preventDefault()
     axios
       .post(`http://localhost:3001/api/rides/${ride}`, packagedPayLoad)
       .catch((err) => console.log(err))
+    navigate(`/coaster/details/${ride}`)
   }
 
   return (
     <form onSubmit={handleOnSubmit}>
       <label>
         Username:
-        <input
-          onChange={handleUsernameChange}
-          type="text"
-          name="username"
-          //value="userName"
-        />
+        <input onChange={handleUsernameChange} type="text" name="username" />
       </label>
       <label>
         Rate out of 5:
-        <input
-          onChange={handleRatingChange}
-          type="text"
-          name="rating"
-          //value="rating"
-        />
+        <input onChange={handleRatingChange} type="text" name="rating" />
       </label>
       <label>
         Leave a review:
-        <input
-          onChange={handleReviewChange}
-          type="text"
-          name="review"
-          //value="review"
-        />
+        <input onChange={handleReviewChange} type="text" name="review" />
       </label>
       <button type="submit">Submit review</button>
     </form>
