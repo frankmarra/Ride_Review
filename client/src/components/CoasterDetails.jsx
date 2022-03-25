@@ -19,7 +19,6 @@ const CoasterDetails = () => {
 
   const getReviews = async () => {
     const response = await axios.get(`http://localhost:3001/api/rides/reviews/${selectedCoaster.coasterId}`)
-    console.log(response.data.coasterReviews)
     setReviews(response.data.coasterReviews)
     getAverageRating(response.data.coasterReviews)
   }
