@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #3bbcd9;
   text-align: center;
+  overflow: hidden;
 }
 
 nav {
@@ -34,6 +35,13 @@ code {
     monospace;
 }
 
+.wrapper {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
 .img {
   width: 90%;
   height: 200px;
@@ -48,10 +56,38 @@ code {
 
 .container {
   padding: 2em 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 320px);
-  grid-gap: 1em;
+  display: flex;
   justify-content: center;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.container > div {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  width: 100vw;
+  height: 500px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .style {
@@ -59,30 +95,56 @@ code {
   border-radius: 10%;
   text-align: center;
   padding-bottom: 10px;
+  height: 300px;
+  width: 300px;
+  background-color: #88e8f2;
+  margin: 10px;
 }
 
 #highlight:hover {
   background-color: #f2b705;
   text-decoration: underline;
+  box-shadow: 0px 0px 20px 5px #f2b705;
+  width: 310px;
+  height: 300px;
+  padding: 10px;
 }
 
 body {
   background-color: #3bbcd9;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+
+input {
+  margin: 30px;
+}
+
+label {
+  margin: 15px;
+  display: block;
   font-size: 20px;
 }
 
-button {
-  margin-top: 20px;
-  max-width: 100px;
+input {
+  margin-left: 5px;
+  height: 17px;
 }
 
-input {
-  margin-top: 20px;
+button {
+  background-color: rgb(118, 33, 230);
+  border-radius: 8px;
+  color: white;
+  width: 130px;
+  height: 40px;
+  border: 4px double #cccccc;
+  margin: 5px;
+  font-size: 14px;
+  transition: 0.25s;
+}
+
+button:hover,
+button:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+  background-color: #f2b705;
 }
